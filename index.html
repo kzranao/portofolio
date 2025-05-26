@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Zahra</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --dark: #000000;
+            --navy: #0c0c0c;
+            --light: #64ffda;
+            --white: #e6f1ff;
+            --grey: #8c8d90;
+            --accent: #64ffda;
+            /* Hijau toska sebagai aksen */
+        }
+
+        body {
+            font: 16px 'Arial', sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, #0d0d0d, #1c1c1c);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Utility Classes */
+        .container {
+            width: 90%;
+            margin: auto;
+        }
+
+        section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2em;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+            color: var(--accent);
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent);
+        }
+
+        /* Navigasi */
+        nav {
+            background: rgba(0, 0, 0, 0.85);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px #64ffda;
+            padding: 15px 0;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        nav:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: var(--accent);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav li {
+            margin-left: 25px;
+        }
+
+        nav a {
+            color: var(--grey);
+            text-decoration: none;
+            transition: color 0.3s, transform 0.3s;
+            /* Tambahkan transisi untuk transform */
+        }
+
+        nav a:hover {
+            color: var(--accent);
+            transform: scale(1.1);
+            /* Efek hover membesar */
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #121212, #2a2a2a);
+                url('header-bg.jpg') center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        header:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        header img {
+            width: 250px;
+            /* Perbesar ukuran foto */
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 4px solid var(--accent);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        header img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            color: var(--white);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: var(--grey);
+        }
+
+        .highlight-name2 {
+        color: #ffffff; /* putih */
+        font-weight: bold;
+        }
+
+        .hero {
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        height: 100vh;
+        position: relative;
+        overflow: hidden;
+        padding: 0 40px;
+        }
+
+        .hero-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        gap: 80px;
+        padding-top: 40px;
+        }
+
+        .hero-text {
+        flex: 1;
+        text-align: left;
+        max-width: 600px;
+        padding-left: 150px;
+        transform: translateY(-30px);
+        }
+
+        .hero-text p {
+        font-size: 1.1rem;
+        margin: 10px 0;
+        }
+
+        .hero-text h1 {
+        font-size: 3.2rem;
+        margin: 10px 0;
+        color: white;
+        }
+
+        .hero-text h3 {
+        font-size: 1.4rem;
+        font-weight: bold;
+        margin: 10px 0;
+        }
+
+        .about-btn {
+        display: inline-block;
+        background-color: #64ffda;
+        color: #000;
+        padding: 12px 28px;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        margin-top: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+        text-decoration: none;
+        }
+
+        .about-btn:hover {
+        background-color: #52e2c1;
+        }
+
+        .hero-image {
+        flex: 1;
+        text-align: center;
+        }
+
+        .hero-image img {
+        width: 400px;
+        height: auto;
+        object-fit: cover;
+        }
+
+        .hero-footer {
+        position: absolute;
+        bottom: 25px;
+        left: 25px;
+        }
+
+        .hero-footer .social-icons {
+        margin-bottom: 10px;
+        }
+
+        .social-icons a {
+        font-size: 1.5rem;
+        color: white;
+        margin-right: 15px;
+        transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+        color: #64ffda;
+        }
+
+        .cv-link {
+        color: white;
+        font-size: 0.95rem;
+        }
+
+        .cv-link strong {
+        text-decoration: underline;
+        }
+
+        .highlight-name {
+        color: #64ffda; /* hijau tosca */
+        font-weight: bold;
+        }
+
+
+        /* About */
+        #about {
+            background: var(--navy);
+            padding: 80px 0;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        #about:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        #about .container {
+            width: 90%;
+            margin: auto;
+            text-align: center;
+        }
+
+        #about .content {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        #about img {
+            width: 380px;
+            margin: 20px;
+            order: 1;
+            /* Pindahkan foto ke kekiri */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+
+        #about p {
+            font-size: 1.1em;
+            line-height: 1.7;
+            max-width: 600px;
+            text-align: justify;
+            margin: 20px;
+            order: 2;
+            /* Pastikan teks tetap di kiri */
+        }
+
+        /* Hard Skills */
+        #hard-skills {
+            background: var(--dark);
+        }
+
+        #hard-skills .skills-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            align-items: stretch;
+            /* Tambahkan ini */
+        }
+
+        #hard-skills .skills-group {
+            width: 22%;
+            min-width: 250px;
+            padding: 20px;
+            background: rgba(66, 69, 72, 0.5);
+            border-radius: 10px;
+            margin: 10px;
+            box-sizing: border-box;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            border: 2px solid var(--accent);
+            /* Tambahkan border ini */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            /* Tambahkan box shadow */
+        }
+
+        #hard-skills .skills-group:hover {
+            transform: scale(1.05);
+            /* Efek zoom saat dihover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        #hard-skills h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            /* Kembalikan margin bottom */
+            color: var(--accent);
+            text-align: center;
+            /* Tambahkan ini */
+            position: relative;
+            padding-bottom: 5px;
+            /* Berikan ruang untuk garis bawah */
+        }
+
+        #hard-skills h3::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 50%;
+            /* Lebar garis */
+            height: 2px;
+            background-color: var(--accent);
+        }
+
+        #hard-skills ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            /* Hapus margin default */
+        }
+
+        #hard-skills li {
+            font-size: 1em;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        /* Soft Skills */
+        #soft-skills {
+            background: var(--navy);
+            padding: 80px 0;
+            /* Menyamakan tinggi dengan section about */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        #soft-skills:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        #soft-skills ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #soft-skills li {
+            margin: 15px;
+            font-size: 1.1em;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 12px 20px;
+            border-radius: 25px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        /* Certification */
+        #certification {
+            background: var(--dark);
+            padding: 50px 0;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        #certification:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        #certification .certifications-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #certification .certification-group {
+            width: 30%;
+            min-width: 250px;
+            margin: 20px;
+            padding: 20px;
+            background: rgba(14, 15, 17, 0.5);
+            border-radius: 10px;
+            text-align: left;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        #certification .certification-group:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        #certification h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 5px;
+            color: var(--accent);
+            text-align: center;
+        }
+
+        #certification .certification-group ul li a {
+            color: var(--white);
+            /* Mengatur warna link menjadi putih */
+            text-decoration: none;
+            /* Menghilangkan garis bawah default pada link */
+        }
+
+        #certification .certification-group ul li a:hover {
+            text-decoration: underline;
+            /* Menambahkan garis bawah saat dihover */
+        }
+
+        #certification ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #certification li {
+            font-size: 1em;
+            margin-bottom: 8px;
+            color: var(--grey);
+        }
+
+        /* Modal Style */
+        .modal {
+        display: none; 
+        position: fixed;
+        z-index: 999;
+        padding-top: 60px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.85);
+        }
+
+        .modal-content {
+        display: block;
+        margin: auto;
+        max-width: 50%;
+        max-height: 60%;
+        border-radius: 10px;
+        box-shadow: 0 0 15px #64ffda;
+        animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .close-btn {
+        position: absolute;
+        top: 30px;
+        right: 50px;
+        color: #fff;
+        font-size: 35px;
+        font-weight: bold;
+        cursor: pointer;
+        }
+
+        .close-btn:hover {
+        color: #64ffda;
+        }
+
+        @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.9); }
+        to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Contact */
+        #contact {
+            background: var(--navy);
+            padding: 50px 0;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        #contact:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            background-color: var(--dark);
+            text-align: center;
+            padding: 20px 0;
+            color: var(--grey);
+            font-size: 0.9em;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        footer:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">Ika Isti <span class="highlight-name2">Portofolio</span></a>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#hard-skills">Skills</a></li>
+                <li><a href="#certification">Certification Course</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+<section id="home" class="hero">
+  <div class="hero-container">
+    <div class="hero-text">
+      <p>Hello,</p>
+      <h1>I Am <span class="highlight-name">Zahra</span></h1>
+      <h3>- Network Computer and Enginering</h3>
+      <p>Focused on Mikrotik | Debian | Network Infrastructure</p>
+      <a href="#about" class="about-btn">About Me</a>
+    </div>
+
+    <div class="hero-image">
+      <img src="zahraaaa.png" alt="Zahra">
+    </div>
+  </div>
+
+  <div class="hero-footer">
+    <div class="social-icons">
+      <a href="mailto:ikaisti.qz@email.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.youtube.com/@z.araaaw"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.instagram.com/z.araarchive/"><i class="fab fa-instagram"></i></a>
+      <a href="https://saturnxtc.blogspot.com/"><i class="fab fa-blogger"></i></a>
+    </div>
+    <a href="Curriculum Vitae.pdf" target="_blank" class="cv-link"><strong>Download</strong> Curriculum Vitae</a>
+  </div>
+</section>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="content">
+                <img src="zahra1.png" alt="Foto Zahra">
+                <p>
+                    I am a student of SMK Negeri 1 Nglegok majoring in Computer and Network Engineering (TKJ) 
+                    who has an interest in computer networking. With a disciplined attitude, thoroughness, 
+                    and the ability to learn quickly, I am ready to contribute and continue to grow in the 
+                    industrial world.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="hard-skills">
+        <div class="container">
+            <h2>Hard Skills</h2>
+            <div class="skills-container">
+                <div class="skills-group">
+                    <h3><i class="fas fa-network-wired"></i> Mikrotik</h3>
+                    <ul>
+                        <li>Basic Mikrotik</li>
+                        <li>Routing</li>
+                        <li>Tunneling</li>
+                        <li>Wireless</li>
+                        <li>DHCP</li>
+                        <li>Queue</li>
+                        <li>Firewall NAT</li>
+                        <li>Bridging</li>
+                        <li>Load Balance</li>
+                    </ul>
+                </div>
+                <div class="skills-group">
+                    <h3><i class="fas fa-server"></i>Linux Debian</h3>
+                    <ul>
+                        <li>Installed and configured Linux Debian systems by :</li>
+                        <li>- Setting up SSH access</li>
+                        <li>- Configuring DNS Server</li>
+                        <li>- Configuring DHCP Server</li>
+                        <li>- Configuring NTP Service</li>
+                        <li>- Configuring FTP Service</li>
+                        <li>- Mail Server</li>
+                        <li>- Web Server [ Apache & NGINX ]</li>
+                    </ul>
+                </div>
+                <div class="skills-group">
+                    <h3><i class="fas fa-sitemap"></i>Network Infrastructure</h3>
+                    <ul>
+                        <li>Installing LAN cables</li>
+                        <li>Installing and splicing fiber optic cables</li>
+                        <li>Operating and configuring TP-LINK</li>
+                        <li>Operating and configuring LHG-5</li>
+                        <li>Building simple network infrastructures</li>
+                    </ul>
+                </div>
+                <div class="skills-group">
+                    <h3><i class="fas fa-code"></i>WEB Programming</h3>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="soft-skills">
+        <div class="container">
+            <h2>Soft Skills</h2>
+            <ul>
+                <li><i class="fas fa-users"></i> Able to work in teams and individually</li>
+                <li><i class="fas fa-check-circle"></i> Discipline and responsibility in completing tasks</li>
+                <li><i class="fas fa-comments"></i> Communicative and able to adapt to new work environment</li>
+                <li><i class="fas fa-search"></i> Thorough in performing network configuration and troubleshooting</li>
+                <li><i class="fas fa-lightbulb"></i> Able to learn new things quickly</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="certification">
+        <div class="container">
+            <h2>Certification Course</h2>
+            <div class="certifications-container">
+                <div class="certification-group">
+                    <h3>By Aguna Course</h3>
+                    <ul>
+                        <li><a href="linux-fundamental.jpeg">Linux Fundamental</a></li>
+                        <li><a href="vm-fundamental.jpeg">Virtual Machine Fundamental</a></li>
+                        <li><a href="python-fundamental.jpeg">Python Fundamental</a></li>
+                        <li><a href="network-fundamental.jpeg">Network Fundamental</a></li>
+                    </ul>
+                </div>
+                <div class="certification-group">
+                    <h3>By Fortinet</h3>
+                    <ul>
+                        <li><a href="introduction.jpeg">FCF Introduction to TTL 2.0</a></li>
+                        <li><a href="getting-started.jpeg">FCF Getting Started to Cybersecurity 2.0</a></li>
+                        <li><a href="Fortinet - technical_page-0001.jpg">FCF Technical Introduction Cybersecurity 1.0</a></li>
+                        <li><a href="fca.jpeg">Fortinet Certified Associate in Cybersecurity</a></li>
+                        <li><a href="fcf.jpeg">Fortinet Certified Fundamentals in Cybersecurity</a></li>
+                        <li><a href="Fortinet - Fortigate 7.4_page-0001.jpg">FCA Fortigate 7.4 Operator Self-Paced</a></li>
+                    </ul>
+                </div>
+                <div class="certification-group">
+                    <h3>By ID Networkers</h3>
+                    <ul>
+                        <li><a href="belajar-linux.jpeg">Belajar Linux</a></li>
+                        <li><a href="cisco-dasar.jpeg">Cisco Dasar</a></li>
+                        <li><a href="mikrotik-dasar.jpeg">MikroTik Dasar</a></li>
+                    </ul>
+                </div>
+                <div class="certification-group">
+                    <h3>By Always Ngoding</h3>
+                    <ul>
+                        <li><a href="belajarhtml.jpeg">Belajar HTML</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Sertifikat -->
+        <div id="cert-modal" class="modal">
+            <span class="close-btn">&times;</span>
+                <img class="modal-content" id="cert-img">
+        </div>
+    </section>
+
+    <section id="contact" class="py-5" style="background: #0c0c0c;">
+        <div class="container">
+          <h2 class="text-center mb-4 text-white">Contact</h2>
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <div class="d-grid gap-3">
+                <!-- Blogger -->
+                <div class="d-flex align-items-center justify-content-between px-3 py-2 rounded" style="background-color: rgba(255, 255, 255, 0.05);">
+                  <span class="text-white"><i class="fab fa-blogger me-2"></i> Blogger</span>
+                  <a href="https://saturnxtc.blogspot.com/" class="text-info text-decoration-none" target="_blank">saturnxtc</a>
+                </div>
+                <!-- Email -->
+                <div class="d-flex align-items-center justify-content-between px-3 py-2 rounded" style="background-color: rgba(255, 255, 255, 0.05);">
+                  <span class="text-white"><i class="fas fa-envelope me-2"></i> Email</span>
+                  <a href="mailto:ikaisti.qz@gmail.com" class="text-info text-decoration-none">ikaisti.qz@gmail.com</a>
+                </div>
+                <!-- Instagram -->
+                <div class="d-flex align-items-center justify-content-between px-3 py-2 rounded" style="background-color: rgba(255, 255, 255, 0.05);">
+                  <span class="text-white"><i class="fab fa-instagram me-2"></i> Instagram</span>
+                  <a href="https://www.instagram.com/z.araarchive/" class="text-info text-decoration-none" target="_blank">@z.araarchive</a>
+                </div>
+                <!-- Youtube -->
+                <div class="d-flex align-items-center justify-content-between px-3 py-2 rounded" style="background-color: rgba(255, 255, 255, 0.05);">
+                <span class="text-white"><i class="fab fa-youtube me-2"></i> YouTube</span>
+                <a href="https://www.youtube.com/@z.araaaw" class="text-info text-decoration-none" target="_blank">Ika Isti</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Ika Istiqomatuzzahra. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        ScrollReveal({
+            reset: false,
+            distance: '40px',
+            duration: 1500,
+            delay: 200
+        });
+
+        ScrollReveal().reveal('nav, header, #about, #hard-skills, #soft-skills, #pengalaman, #certification, #contact, footer', {
+            delay: 200,
+            origin: 'bottom'
+        });
+
+            const links = document.querySelectorAll('#certification a');
+            const modal = document.getElementById('cert-modal');
+            const modalImg = document.getElementById('cert-img');
+            const closeBtn = document.querySelector('.close-btn');
+
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                e.preventDefault(); // supaya tidak buka tab
+                const imgSrc = this.getAttribute('href');
+                modal.style.display = 'block';
+                modalImg.src = imgSrc;
+                });
+            });
+
+            closeBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+                modalImg.src = '';
+            });
+
+            window.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                modal.style.display = 'none';
+                modalImg.src = '';
+                }
+            });
+    </script>
+</body>
+
+</html>
